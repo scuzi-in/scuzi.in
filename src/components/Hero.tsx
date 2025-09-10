@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center text-white">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto text-6xl">
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 animate-fade-in-up my-0 lg:text-7xl">
             Elevate Your Brand with{' '}
