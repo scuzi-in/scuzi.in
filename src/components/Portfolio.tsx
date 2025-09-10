@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, X, ArrowLeft, ArrowRight } from 'lucide-react';
 
+// Import portfolio images
+import techCorpImage from '../assets/portfolio-techcorp-ecommerce.jpg';
+import healthPlusImage from '../assets/portfolio-healthplus-marketing.jpg';
+import eduLearnImage from '../assets/portfolio-edulearn-lms.jpg';
+import restaurantHubImage from '../assets/portfolio-restauranthub-brand.jpg';
+import financeFlowImage from '../assets/portfolio-financeflow-app.jpg';
+import travelEasyImage from '../assets/portfolio-traveleasy-booking.jpg';
+
 /**
  * Portfolio Section Component
  * Features:
@@ -33,7 +41,7 @@ const Portfolio: React.FC = () => {
     description: "Complete e-commerce solution with integrated payment gateway and inventory management.",
     services: ["Web Development", "SEO", "PPC"],
     category: "E-commerce",
-    image: "/api/placeholder/500/350",
+    image: techCorpImage,
     detailDescription: "A comprehensive e-commerce platform built from the ground up for TechCorp, featuring modern design, seamless user experience, and robust backend functionality.",
     technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
     results: ["300% increase in online sales", "50% reduction in cart abandonment", "95% customer satisfaction"]
@@ -43,7 +51,7 @@ const Portfolio: React.FC = () => {
     description: "Multi-channel digital marketing strategy that increased patient acquisition by 200%.",
     services: ["SEO", "Content Marketing", "Social Media"],
     category: "Healthcare",
-    image: "/api/placeholder/500/350",
+    image: healthPlusImage,
     detailDescription: "Comprehensive digital marketing strategy for HealthPlus clinic, focusing on patient education and local SEO optimization.",
     technologies: ["Google Ads", "Facebook Ads", "Content CMS", "Analytics"],
     results: ["200% increase in patient acquisition", "150% boost in organic traffic", "400% growth in social engagement"]
@@ -53,7 +61,7 @@ const Portfolio: React.FC = () => {
     description: "Custom LMS platform with interactive features and progress tracking.",
     services: ["Web Development", "UX Design"],
     category: "Education",
-    image: "/api/placeholder/500/350",
+    image: eduLearnImage,
     detailDescription: "Modern learning management system with interactive coursework, video streaming, and comprehensive progress tracking for educational institutions.",
     technologies: ["React", "Python Django", "PostgreSQL", "AWS"],
     results: ["500+ active users", "40% improvement in course completion", "99.9% uptime achieved"]
@@ -63,7 +71,7 @@ const Portfolio: React.FC = () => {
     description: "Complete brand overhaul including website redesign and social media strategy.",
     services: ["Branding", "Web Design", "Social Media"],
     category: "Restaurant",
-    image: "/api/placeholder/500/350",
+    image: restaurantHubImage,
     detailDescription: "Complete brand transformation for RestaurantHub, including logo design, website development, and integrated social media marketing strategy.",
     technologies: ["WordPress", "Adobe Creative Suite", "Social Media APIs"],
     results: ["75% increase in reservations", "300% growth in social followers", "50% boost in brand recognition"]
@@ -73,7 +81,7 @@ const Portfolio: React.FC = () => {
     description: "Personal finance management app with budgeting and investment tracking.",
     services: ["Mobile Development", "UX Design"],
     category: "Finance",
-    image: "/api/placeholder/500/350",
+    image: financeFlowImage,
     detailDescription: "Intuitive personal finance mobile application featuring expense tracking, budget management, and investment portfolio monitoring.",
     technologies: ["React Native", "Firebase", "Chart.js", "Plaid API"],
     results: ["10,000+ downloads", "4.8 App Store rating", "60% user retention rate"]
@@ -83,7 +91,7 @@ const Portfolio: React.FC = () => {
     description: "Travel booking platform with real-time availability and payment processing.",
     services: ["Web Development", "Payment Integration"],
     category: "Travel",
-    image: "/api/placeholder/500/350",
+    image: travelEasyImage,
     detailDescription: "Comprehensive travel booking platform connecting travelers with accommodations, featuring real-time availability and secure payment processing.",
     technologies: ["Vue.js", "Express.js", "MySQL", "Payment Gateway APIs"],
     results: ["1000+ bookings monthly", "25% conversion rate improvement", "98% payment success rate"]
@@ -129,11 +137,12 @@ const Portfolio: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map(project => <div key={project.id} className="card-portfolio group cursor-pointer" onClick={() => openProjectModal(project)}>
               {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <div className="text-center">
-                  <ExternalLink className="w-12 h-12 text-primary mx-auto mb-2" />
-                  <p className="text-primary font-medium">Click to view details</p>
-                </div>
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -180,11 +189,12 @@ const Portfolio: React.FC = () => {
               {/* Modal Content */}
               <div className="p-6 space-y-6">
                 {/* Project Image */}
-                <div className="h-64 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <ExternalLink className="w-16 h-16 text-primary mx-auto mb-2" />
-                    <p className="text-primary font-medium text-lg">{selectedProject.title}</p>
-                  </div>
+                <div className="h-64 bg-gray-100 rounded-xl overflow-hidden">
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Project Description */}
