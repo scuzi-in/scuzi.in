@@ -1,14 +1,5 @@
 import React from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Twitter, 
-  Instagram,
-  ArrowUp,
-  Heart
-} from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUp, Heart } from 'lucide-react';
 
 /**
  * Footer Component
@@ -21,60 +12,63 @@ import {
  */
 const Footer: React.FC = () => {
   // Navigation links for quick access
-  const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  const quickLinks = [{
+    name: 'Home',
+    href: '#home'
+  }, {
+    name: 'Services',
+    href: '#services'
+  }, {
+    name: 'About Us',
+    href: '#about'
+  }, {
+    name: 'Portfolio',
+    href: '#portfolio'
+  }, {
+    name: 'Testimonials',
+    href: '#testimonials'
+  }, {
+    name: 'Contact',
+    href: '#contact'
+  }];
 
   // Social media links
-  const socialLinks = [
-    {
-      name: 'LinkedIn',
-      href: 'https://linkedin.com/company/scuzi',
-      icon: <Linkedin className="w-5 h-5" />
-    },
-    {
-      name: 'Twitter',
-      href: 'https://twitter.com/scuzi_in',
-      icon: <Twitter className="w-5 h-5" />
-    },
-    {
-      name: 'Instagram',
-      href: 'https://instagram.com/scuzi.in',
-      icon: <Instagram className="w-5 h-5" />
-    }
-  ];
+  const socialLinks = [{
+    name: 'LinkedIn',
+    href: 'https://linkedin.com/company/scuzi',
+    icon: <Linkedin className="w-5 h-5" />
+  }, {
+    name: 'Twitter',
+    href: 'https://twitter.com/scuzi_in',
+    icon: <Twitter className="w-5 h-5" />
+  }, {
+    name: 'Instagram',
+    href: 'https://instagram.com/scuzi.in',
+    icon: <Instagram className="w-5 h-5" />
+  }];
 
   // Contact information for footer
-  const footerContact = [
-    {
-      icon: <Mail className="w-4 h-4" />,
-      text: 'info.scuzi@gmail.com',
-      href: 'mailto:info.scuzi@gmail.com'
-    },
-    {
-      icon: <Phone className="w-4 h-4" />,
-      text: '+91-9876543210',
-      href: 'tel:+919876543210'
-    },
-    {
-      icon: <MapPin className="w-4 h-4" />,
-      text: 'Noida, Uttar Pradesh, India',
-      href: 'https://maps.google.com/?q=Noida,Uttar+Pradesh,India'
-    }
-  ];
+  const footerContact = [{
+    icon: <Mail className="w-4 h-4" />,
+    text: 'info.scuzi@gmail.com',
+    href: 'mailto:info.scuzi@gmail.com'
+  }, {
+    icon: <Phone className="w-4 h-4" />,
+    text: '+91-9876543210',
+    href: 'tel:+919876543210'
+  }, {
+    icon: <MapPin className="w-4 h-4" />,
+    text: 'Noida, Uttar Pradesh, India',
+    href: 'https://maps.google.com/?q=Noida,Uttar+Pradesh,India'
+  }];
 
   // Smooth scroll to section
   const handleSmoothScroll = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
-        block: 'start' 
+        block: 'start'
       });
     }
   };
@@ -86,9 +80,7 @@ const Footer: React.FC = () => {
       behavior: 'smooth'
     });
   };
-
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -109,18 +101,9 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
               <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:text-white hover:bg-primary transition-all duration-300 transform hover:scale-110"
-                    aria-label={`Follow us on ${social.name}`}
-                  >
+                {socialLinks.map((social, index) => <a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:text-white hover:bg-primary transition-all duration-300 transform hover:scale-110" aria-label={`Follow us on ${social.name}`}>
                     {social.icon}
-                  </a>
-                ))}
+                  </a>)}
               </div>
             </div>
           </div>
@@ -129,16 +112,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => handleSmoothScroll(link.href)}
-                    className="text-gray-300 hover:text-white hover:text-primary transition-colors duration-300 text-left"
-                  >
+              {quickLinks.map((link, index) => <li key={index}>
+                  <button onClick={() => handleSmoothScroll(link.href)} className="text-gray-300 hover:text-white hover:text-primary transition-colors duration-300 text-left">
                     {link.name}
                   </button>
-                </li>
-              ))}
+                </li>)}
             </ul>
 
             {/* Additional Services */}
@@ -157,27 +135,16 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6">Contact Information</h4>
             <div className="space-y-4">
-              {footerContact.map((contact, index) => (
-                <div key={index} className="flex items-start group">
+              {footerContact.map((contact, index) => <div key={index} className="flex items-start group">
                   <div className="mr-3 mt-1 text-primary">
                     {contact.icon}
                   </div>
                   <div>
-                    {contact.href ? (
-                      <a
-                        href={contact.href}
-                        className="text-gray-300 hover:text-white transition-colors duration-300"
-                        target={contact.href.startsWith('http') ? '_blank' : undefined}
-                        rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      >
+                    {contact.href ? <a href={contact.href} className="text-gray-300 hover:text-white transition-colors duration-300" target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
                         {contact.text}
-                      </a>
-                    ) : (
-                      <span className="text-gray-300">{contact.text}</span>
-                    )}
+                      </a> : <span className="text-gray-300">{contact.text}</span>}
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
 
             {/* Business Hours */}
@@ -194,32 +161,15 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="text-center">
-            <h4 className="text-xl font-semibold mb-4">Stay Updated</h4>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Get the latest digital marketing tips, industry insights, and exclusive offers delivered to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300"
-              />
-              <button className="btn-secondary whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-gray-950 py-6">
+      <div className="bg-gray-950 py-6 mx-0">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left">
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm text-left">
                 © 2024 Scuzi.in. All Rights Reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
@@ -228,18 +178,12 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Scroll to Top Button */}
-            <button
-              onClick={scrollToTop}
-              className="mt-4 md:mt-0 w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary transition-all duration-300 transform hover:scale-110 group"
-              aria-label="Scroll to top"
-            >
+            <button onClick={scrollToTop} className="mt-4 md:mt-0 w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary transition-all duration-300 transform hover:scale-110 group" aria-label="Scroll to top">
               <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </button>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

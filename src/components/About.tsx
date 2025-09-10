@@ -11,45 +11,35 @@ import { Lightbulb, Eye, Trophy, Users, Award, Clock } from 'lucide-react';
  */
 const About: React.FC = () => {
   // Company values with icons and descriptions
-  const values = [
-    {
-      icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      title: "Innovation",
-      description: "We stay ahead of digital trends and continuously innovate our strategies to deliver cutting-edge solutions."
-    },
-    {
-      icon: <Eye className="w-8 h-8 text-primary" />,
-      title: "Transparency",
-      description: "Clear communication and honest reporting are at the core of our client relationships."
-    },
-    {
-      icon: <Trophy className="w-8 h-8 text-primary" />,
-      title: "Client Success",
-      description: "Your success is our success. We're committed to delivering measurable results that drive your business forward."
-    }
-  ];
+  const values = [{
+    icon: <Lightbulb className="w-8 h-8 text-primary" />,
+    title: "Innovation",
+    description: "We stay ahead of digital trends and continuously innovate our strategies to deliver cutting-edge solutions."
+  }, {
+    icon: <Eye className="w-8 h-8 text-primary" />,
+    title: "Transparency",
+    description: "Clear communication and honest reporting are at the core of our client relationships."
+  }, {
+    icon: <Trophy className="w-8 h-8 text-primary" />,
+    title: "Client Success",
+    description: "Your success is our success. We're committed to delivering measurable results that drive your business forward."
+  }];
 
   // Company achievements and statistics
-  const achievements = [
-    {
-      icon: <Users className="w-6 h-6 text-primary" />,
-      number: "200+",
-      label: "Happy Clients"
-    },
-    {
-      icon: <Award className="w-6 h-6 text-primary" />,
-      number: "50+",
-      label: "Awards Won"
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-primary" />,
-      number: "5+",
-      label: "Years Experience"
-    }
-  ];
-
-  return (
-    <section id="about" className="section-padding bg-background">
+  const achievements = [{
+    icon: <Users className="w-6 h-6 text-primary" />,
+    number: "200+",
+    label: "Happy Clients"
+  }, {
+    icon: <Award className="w-6 h-6 text-primary" />,
+    number: "50+",
+    label: "Awards Won"
+  }, {
+    icon: <Clock className="w-6 h-6 text-primary" />,
+    number: "5+",
+    label: "Years Experience"
+  }];
+  return <section id="about" className="section-padding bg-background px-0 py-[3px]">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -106,15 +96,13 @@ const About: React.FC = () => {
 
             {/* Achievement Stats */}
             <div className="grid grid-cols-3 gap-6 mt-10">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="text-center">
+              {achievements.map((achievement, index) => <div key={index} className="text-center">
                   <div className="flex items-center justify-center mb-2">
                     {achievement.icon}
                   </div>
                   <div className="text-2xl font-bold text-gray-900">{achievement.number}</div>
                   <div className="text-sm text-gray-600">{achievement.label}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -126,8 +114,7 @@ const About: React.FC = () => {
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {values.map((value, index) => (
-              <div key={index} className="text-center group">
+            {values.map((value, index) => <div key={index} className="text-center group">
                 <div className="mb-6 flex justify-center transform group-hover:scale-110 transition-transform duration-300">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
                     {value.icon}
@@ -141,34 +128,13 @@ const About: React.FC = () => {
                 <p className="text-gray-600 leading-relaxed">
                   {value.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Ready to Partner with Us?
-          </h3>
-          <p className="text-gray-600 mb-8">
-            Let's discuss how we can help elevate your digital presence.
-          </p>
-          <button 
-            onClick={() => {
-              const element = document.querySelector('#contact');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }}
-            className="btn-hero"
-          >
-            Start the Conversation
-          </button>
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
