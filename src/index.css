@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional Digital Marketing Agency Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
+    /* Professional Color Palette */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -17,26 +17,57 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary Brand Colors - Professional Blue */
+    --primary: 219 86% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 219 86% 45%;
+    --primary-light: 219 86% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary Colors - Elegant Purple */
+    --secondary: 256 87% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-dark: 256 87% 50%;
 
+    /* Accent Colors */
+    --accent: 202 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 202 100% 90%;
+
+    /* Neutral Colors */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
+    --gray-50: 210 40% 98%;
+    --gray-100: 210 40% 96%;
+    --gray-200: 214.3 31.8% 91.4%;
+    --gray-300: 213 27% 84%;
+    --gray-400: 215.4 16.3% 56.9%;
+    --gray-500: 215.4 16.3% 46.9%;
+    --gray-600: 215.4 16.3% 36.9%;
+    --gray-700: 215.4 19.3% 26.9%;
+    --gray-800: 215 27.9% 16.9%;
+    --gray-900: 222.2 84% 4.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--gray-50)) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px 0 hsl(var(--gray-900) / 0.1);
+    --shadow-md: 0 4px 12px 0 hsl(var(--gray-900) / 0.1);
+    --shadow-lg: 0 10px 30px 0 hsl(var(--gray-900) / 0.15);
+    --shadow-primary: 0 8px 25px 0 hsl(var(--primary) / 0.3);
+    --shadow-hover: 0 15px 35px 0 hsl(var(--gray-900) / 0.2);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 219 86% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +131,175 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+
+  /* Smooth scrolling for navigation */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--gray-100));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-dark));
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-primary hover:-translate-y-1 hover:scale-105;
+  }
+
+  .btn-outline-hero {
+    @apply border-2 border-primary text-primary bg-transparent px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-primary hover:-translate-y-1;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-accent to-primary text-accent-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply text-gray-700 hover:text-primary hover:bg-gray-50 px-4 py-2 rounded-lg transition-all duration-300;
+  }
+
+  /* Card Variants */
+  .card-service {
+    @apply bg-gradient-to-br from-background to-gray-50 border border-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-hover hover:-translate-y-2 hover:border-primary/20;
+  }
+
+  .card-portfolio {
+    @apply bg-background border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/30;
+  }
+
+  .card-testimonial {
+    @apply bg-gradient-to-br from-background to-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300;
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section Padding */
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Navigation Styles */
+  .navbar-glass {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(219, 234, 254, 0.3);
+  }
+
+  /* Animation Classes */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .fade-in-up.animate {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .fade-in-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700;
+  }
+
+  .fade-in-left.animate {
+    @apply opacity-100 translate-x-0;
+  }
+
+  .fade-in-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700;
+  }
+
+  .fade-in-right.animate {
+    @apply opacity-100 translate-x-0;
+  }
+
+  /* Hero Background Animation */
+  .hero-bg {
+    background: linear-gradient(-45deg, 
+      hsl(var(--primary)), 
+      hsl(var(--accent)), 
+      hsl(var(--secondary)), 
+      hsl(var(--primary-light))
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Form Styles */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300 bg-background;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  /* Modal Styles */
+  .modal-backdrop {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Loading Animation */
+  .loading-dots {
+    @apply inline-flex items-center;
+  }
+
+  .loading-dots span {
+    @apply w-2 h-2 bg-primary rounded-full mx-0.5 animate-pulse;
+    animation-delay: var(--delay);
+  }
+}
+
+/* Typography Utilities */
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
