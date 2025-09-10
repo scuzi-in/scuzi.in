@@ -28,10 +28,10 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent bg-[#977dff]"></div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom text-center text-white">
-        <div className="max-w-5xl mx-auto text-6xl">
+      <div className="relative z-10 container-custom text-center text-white px-4 py-8">
+        <div className="max-w-5xl mx-auto">
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 animate-fade-in-up my-0 lg:text-7xl">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 md:mb-8 animate-fade-in-up">
             Elevate Your Brand with{' '}
             <span className="block lg:inline">
               Cutting-Edge Digital Marketing
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-100 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-100 mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up px-2" style={{
           animationDelay: '0.2s'
         }}>
             We craft data-driven strategies and stunning websites that convert visitors into loyal customers.
