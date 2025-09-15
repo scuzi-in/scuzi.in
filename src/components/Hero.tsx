@@ -9,7 +9,7 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
  * - Primary and secondary CTA buttons
  * - Responsive design with professional typography
  */
-//color change 41,font
+
 const Hero: React.FC = () => {
   // Smooth scroll function for CTA buttons
   const handleSmoothScroll = (href: string) => {
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
           animationDelay: '0.6s'
         }}>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">500+</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">50+</div>
               <div className="text-gray-200 text-sm md:text-base">Projects Delivered</div>
             </div>
             <div>
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
               <div className="text-gray-200 text-sm md:text-base">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">5+</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">2+</div>
               <div className="text-gray-200 text-sm md:text-base">Years Experience</div>
             </div>
             <div>
