@@ -114,7 +114,7 @@ const Portfolio: React.FC = () => {
     setSelectedProject(null);
     document.body.style.overflow = 'unset';
   };
-  return <section id="portfolio" className="section-padding bg-gray-50 py-[30px]">
+  return <section id="portfolio" className="section-padding bg-gray-50 py-[30px]" style={{ backgroundColor: "#dad7cd" }}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -237,5 +237,6 @@ const Portfolio: React.FC = () => {
           </div>}
       </div>
     </section>;
+    
 };
 export default Portfolio;

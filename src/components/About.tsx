@@ -39,7 +39,7 @@ const About: React.FC = () => {
     number: "5+",
     label: "Years Experience"
   }];
-  return <section id="about" className="section-padding bg-background px-0 py-[3px]">
+  return <section id="about" className="section-padding bg-background px-0 py-[3px] " style={{ backgroundColor: "#dad7cd" }}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">

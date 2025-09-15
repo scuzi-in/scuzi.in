@@ -158,7 +158,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-  return <section id="contact" className="section-padding bg-gray-50">
+  return <section id="contact" className="section-padding bg-gray-50" style={{ backgroundColor: "#dad7cd" }}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">

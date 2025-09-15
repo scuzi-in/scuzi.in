@@ -98,7 +98,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="section-padding bg-background">
+    <section id="testimonials" className="section-padding bg-background" style={{ backgroundColor: "#dad7cd" }}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -113,7 +113,7 @@ const Testimonials: React.FC = () => {
         {/* Testimonials Carousel */}
         <div className="relative max-w-5xl mx-auto">
           {/* Main Testimonial Card */}
-          <div className="card-testimonial relative min-h-[300px] flex items-center">
+          <div className="card-testimonial relative min-h-[300px] flex items-center" style={{ backgroundColor: "#fdf0d5" }}>
             <div className="w-full text-center px-6 md:px-12">
               {/* Quote Icon */}
               <Quote className="w-12 h-12 text-primary mx-auto mb-6 opacity-50" />

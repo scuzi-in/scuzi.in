@@ -42,7 +42,7 @@ const Services: React.FC = () => {
     description: "Make informed decisions with comprehensive analytics and transparent reporting on your campaign performance.",
     features: ["Google Analytics", "Custom Dashboards", "Conversion Tracking", "ROI Reporting"]
   }];
-  return <section id="services" className="section-padding bg-gray-50">
+  return <section id="services" className="section-padding" style={{ backgroundColor: '#dad7cd' }}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">

@@ -54,9 +54,9 @@ const Header: React.FC = () => {
     }
     setIsMobileMenuOpen(false);
   };
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'navbar-glass shadow-md' : 'bg-transparent'}`}>
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'navbar-glass shadow-md' : 'navbar-glass shadow-md'}`}>
       <nav className="container-custom">
-        <div className="flex items-center justify-between h-20 py-0 px-0 mx-0 my-[10px] rounded-none bg-[#977dff]/0">
+        <div className="flex items-center justify-between h-12 py-0 px-0 mx-0 my-[10px] rounded-none bg-[#977dff]/0">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => handleSmoothScroll('#home')}>
             <h1 className="text-2xl text-gradient font-bold text-slate-50 lg:text-4xl">
