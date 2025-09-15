@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import { noop } from '@tanstack/react-query';
 
 /**
  * Testimonials Section Component
@@ -9,7 +10,7 @@ import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
  * - Star ratings and client information
  * - Responsive design for all devices
  */
-
+// color change line no.100
 // Testimonial interface
 interface Testimonial {
   id: number;
@@ -96,7 +97,6 @@ const Testimonials: React.FC = () => {
       />
     ));
   };
-
   return (
     <section id="testimonials" className="section-padding bg-background" style={{ backgroundColor: "#dad7cd" }}>
       <div className="container-custom">

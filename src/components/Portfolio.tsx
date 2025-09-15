@@ -17,7 +17,7 @@ import travelEasyImage from '../assets/portfolio-traveleasy-booking.jpg';
  * - Professional project showcases
  * - Responsive grid layout
  */
-
+//color chnage 117
 // Portfolio project interface
 interface Project {
   id: number;

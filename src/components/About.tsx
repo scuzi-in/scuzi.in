@@ -9,6 +9,7 @@ import { Lightbulb, Eye, Trophy, Users, Award, Clock } from 'lucide-react';
  * - Professional statistics and achievements
  * - Responsive design for all devices
  */
+//color change 42
 const About: React.FC = () => {
   // Company values with icons and descriptions
   const values = [{

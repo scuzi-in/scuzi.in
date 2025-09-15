@@ -9,6 +9,7 @@ import { Search, MousePointer, Users, PenTool, Code, BarChart3, Target } from 'l
  * - Hover animations and professional styling
  * - Comprehensive digital marketing and web development services
  */
+// color change 45
 const Services: React.FC = () => {
   // Service data with icons, titles, descriptions, and feature points
   const services = [{
