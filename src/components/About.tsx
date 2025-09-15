@@ -9,7 +9,7 @@ import { Lightbulb, Eye, Trophy, Users, Award, Clock } from 'lucide-react';
  * - Professional statistics and achievements
  * - Responsive design for all devices
  */
-//color change 42
+
 const About: React.FC = () => {
   // Company values with icons and descriptions
   const values = [{
@@ -29,15 +29,15 @@ const About: React.FC = () => {
   // Company achievements and statistics
   const achievements = [{
     icon: <Users className="w-6 h-6 text-primary" />,
-    number: "200+",
+    number: "20+",
     label: "Happy Clients"
   }, {
     icon: <Award className="w-6 h-6 text-primary" />,
     number: "50+",
-    label: "Awards Won"
+    label: "Projects"
   }, {
     icon: <Clock className="w-6 h-6 text-primary" />,
-    number: "5+",
+    number: "2+",
     label: "Years Experience"
   }];
   return <section id="about" className="section-padding bg-background px-0 py-[3px] " style={{ backgroundColor: "#dad7cd" }}>
