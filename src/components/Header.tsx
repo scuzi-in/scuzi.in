@@ -74,7 +74,7 @@ const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <button onClick={() => handleSmoothScroll('#contact')} className="btn-secondary">
-              Get a Free Quote
+              Get a Free Quote..
             </button>
           </div>
 
