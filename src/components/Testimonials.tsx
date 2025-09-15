@@ -10,7 +10,7 @@ import { noop } from '@tanstack/react-query';
  * - Star ratings and client information
  * - Responsive design for all devices
  */
-// color change line no.100
+// color change 
 // Testimonial interface
 interface Testimonial {
   id: number;
