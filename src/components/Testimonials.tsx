@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
-import { noop } from '@tanstack/react-query';
 
 /**
  * Testimonials Section Component
@@ -10,7 +9,7 @@ import { noop } from '@tanstack/react-query';
  * - Star ratings and client information
  * - Responsive design for all devices
  */
-// color change 
+
 // Testimonial interface
 interface Testimonial {
   id: number;
@@ -97,6 +96,7 @@ const Testimonials: React.FC = () => {
       />
     ));
   };
+
   return (
     <section id="testimonials" className="section-padding bg-background" style={{ backgroundColor: "#dad7cd" }}>
       <div className="container-custom">
@@ -185,11 +185,11 @@ const Testimonials: React.FC = () => {
               <div className="text-gray-600 font-medium">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">200+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">20+</div>
               <div className="text-gray-600 font-medium">Happy Clients</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">500+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
               <div className="text-gray-600 font-medium">Projects Completed</div>
             </div>
             <div>
