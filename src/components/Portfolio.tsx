@@ -17,7 +17,7 @@ import travelEasyImage from '../assets/portfolio-traveleasy-booking.jpg';
  * - Professional project showcases
  * - Responsive grid layout
  */
-//need to center image
+
 // Portfolio project interface
 interface Project {
   id: number;
@@ -137,13 +137,13 @@ const Portfolio: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map(project => <div key={project.id} className="card-portfolio group cursor-pointer" onClick={() => openProjectModal(project)}>
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                
+              
+                <div className="relative sm:h-64 overflow-hidden flex items-center justify-center bg-gray-100">
+                <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />         
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-white text-center">
@@ -189,12 +189,12 @@ const Portfolio: React.FC = () => {
               {/* Modal Content */}
               <div className="p-6 space-y-6">
                 {/* Project Image */}
-                <div className="h-64 bg-gray-100 rounded-xl overflow-hidden">
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="md:h-72 bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
+                <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-full object-cover"
+                />
                 </div>
 
                 {/* Project Description */}
