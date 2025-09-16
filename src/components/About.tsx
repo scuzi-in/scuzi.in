@@ -9,7 +9,6 @@ import { Lightbulb, Eye, Trophy, Users, Award, Clock } from 'lucide-react';
  * - Professional statistics and achievements
  * - Responsive design for all devices
  */
-
 const About: React.FC = () => {
   // Company values with icons and descriptions
   const values = [{
@@ -34,7 +33,7 @@ const About: React.FC = () => {
   }, {
     icon: <Award className="w-6 h-6 text-primary" />,
     number: "50+",
-    label: "Projects"
+    label: "projects"
   }, {
     icon: <Clock className="w-6 h-6 text-primary" />,
     number: "2+",
