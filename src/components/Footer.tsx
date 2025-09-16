@@ -120,7 +120,7 @@ const Footer: React.FC = () => {
             </ul>
 
             {/* Additional Services */}
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <h5 className="font-semibold mb-3 text-gray-200">Our Services</h5>
               <ul className="text-sm text-gray-400 space-y-2">
                 <li>Search Engine Optimization</li>
@@ -128,7 +128,7 @@ const Footer: React.FC = () => {
                 <li>Social Media Marketing</li>
                 <li>Web Development</li>
               </ul>
-            </div>
+            </div> */}
           </div>
 
           {/* Column 3: Contact Information */}
