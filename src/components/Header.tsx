@@ -9,7 +9,7 @@ import { Menu, X } from 'lucide-react';
 //  * - Glass morphism effect on scroll
 //  * - Professional branding for Scuzi.in
 //  */
-
+//apply logo
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
