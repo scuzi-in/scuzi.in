@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-/**
- * Header Component with Sticky Navigation
- * Features:
- * - Responsive navigation with mobile hamburger menu
- * - Smooth scrolling to sections
- * - Glass morphism effect on scroll
- * - Professional branding for Scuzi.in
- */
+
+//  * Header Component with Sticky Navigation
+//  * Features:
+//  * - Responsive navigation with mobile hamburger menu
+//  * - Smooth scrolling to sections
+//  * - Glass morphism effect on scroll
+//  * - Professional branding for Scuzi.in
+//  */
+
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -59,9 +60,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-12 py-0 px-0 mx-0 my-[10px] rounded-none bg-[#977dff]/0">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => handleSmoothScroll('#home')}>
-            <h1 className="text-2xl text-gradient font-bold text-slate-50 lg:text-4xl">
-              Scuzi.in
-            </h1>
+                    <img src="src/assets/logo2.png" alt="Scuzi.in Logo" className="h-8 w-auto lg:h-10" />
           </div>
 
           {/* Desktop Navigation */}
@@ -74,7 +73,7 @@ const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <button onClick={() => handleSmoothScroll('#contact')} className="btn-secondary">
-              Get a Free Quote..
+              Get a Free Quote
             </button>
           </div>
 
