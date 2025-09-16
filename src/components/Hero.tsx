@@ -9,7 +9,6 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
  * - Primary and secondary CTA buttons
  * - Responsive design with professional typography
  */
-
 const Hero: React.FC = () => {
   // Smooth scroll function for CTA buttons
   const handleSmoothScroll = (href: string) => {
@@ -25,10 +24,10 @@ const Hero: React.FC = () => {
       {/* Animated Background */}
       <div className="absolute inset-0 hero-bg"></div>
       {/*Backgroung image*/}
-      <div className="absolute inset-0 bg-cover bg-center filter blur-lg"
-      style={{ backgroundImage: "url('/bk.jpg')" }}></div>
+      {/* <div className="absolute inset-0 bg-cover bg-center filter blur-lg"
+      style={{ backgroundImage: "url('/bk.jpg')" }}></div> */}
 
-    
+      
       {/* Background Overlay */}
       <div className="absolute inset-0  from-black/40 to-transparent bg-[#344e41]"></div>
 
