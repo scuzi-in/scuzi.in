@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Professional Digital Marketing Agency Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -70,19 +71,12 @@
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -114,6 +108,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -123,9 +118,7 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -139,12 +132,10 @@
     @apply font-poppins;
   }
 
-  /* Smooth scrolling for navigation */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -164,7 +155,6 @@
 }
 
 @layer components {
-  /* Button Variants */
   .btn-hero {
     @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-primary hover:-translate-y-1 hover:scale-105;
   }
@@ -181,7 +171,6 @@
     @apply text-gray-700 hover:text-primary hover:bg-gray-50 px-4 py-2 rounded-lg transition-all duration-300;
   }
 
-  /* Card Variants */
   .card-service {
     @apply bg-gradient-to-br from-background to-gray-50 border border-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-hover hover:-translate-y-2 hover:border-primary/20;
   }
@@ -194,7 +183,6 @@
     @apply bg-gradient-to-br from-background to-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300;
   }
 
-  /* Text Gradient */
   .text-gradient {
     background: var(--gradient-text);
     -webkit-background-clip: text;
@@ -202,7 +190,6 @@
     background-clip: text;
   }
 
-  /* Section Padding */
   .section-padding {
     @apply py-20 lg:py-28;
   }
@@ -211,14 +198,12 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Navigation Styles */
   .navbar-glass {
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid rgba(219, 234, 254, 0.3);
   }
 
-  /* Animation Classes */
   .fade-in-up {
     @apply opacity-0 translate-y-8 transition-all duration-700;
   }
@@ -243,7 +228,6 @@
     @apply opacity-100 translate-x-0;
   }
 
-  /* Hero Background Animation */
   .hero-bg {
     background: linear-gradient(-45deg, 
       hsl(var(--primary)), 
@@ -267,7 +251,6 @@
     }
   }
 
-  /* Form Styles */
   .form-input {
     @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300 bg-background;
   }
@@ -276,13 +259,11 @@
     @apply block text-sm font-medium text-gray-700 mb-2;
   }
 
-  /* Modal Styles */
   .modal-backdrop {
     backdrop-filter: blur(8px);
     background: rgba(0, 0, 0, 0.5);
   }
 
-  /* Loading Animation */
   .loading-dots {
     @apply inline-flex items-center;
   }
@@ -293,7 +274,6 @@
   }
 }
 
-/* Typography Utilities */
 @layer utilities {
   .font-inter {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
