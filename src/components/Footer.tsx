@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUp, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, ArrowUp, Heart,MessageCircle } from 'lucide-react';
 
 /**
  * Footer Component
@@ -38,9 +38,18 @@ const Footer: React.FC = () => {
     href: 'https://linkedin.com/company/scuzi',
     icon: <Linkedin className="w-5 h-5" />
   }, {
-    name: 'Twitter',
-    href: 'https://twitter.com/scuzi_in',
-    icon: <Twitter className="w-5 h-5" />
+    name: 'Whatsapp',
+    href: 'https://wa.me/916202620905',
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        className="w-5 h-5"
+      >
+        <path d="M12.04 2C6.5 2 2 6.27 2 11.7c0 2.04.64 3.94 1.75 5.5L2 22l5-1.6c1.5.82 3.25 1.3 5.04 1.3 5.55 0 10.04-4.27 10.04-9.7S17.6 2 12.04 2zm0 17.5c-1.52 0-3-.43-4.25-1.25l-.3-.2-3 .95.96-2.86-.2-.3c-.96-1.33-1.48-2.88-1.48-4.44 0-4.06 3.43-7.36 7.7-7.36s7.7 3.3 7.7 7.36-3.43 7.36-7.7 7.36zm4.16-5.47c-.23-.12-1.37-.67-1.58-.74-.21-.08-.36-.12-.52.12-.16.23-.6.73-.73.88-.13.15-.27.17-.5.06-.23-.12-.97-.35-1.85-1.12-.68-.61-1.14-1.36-1.27-1.59-.13-.23-.01-.35.1-.47.1-.1.23-.27.35-.4.12-.13.16-.23.23-.38.07-.15.04-.29-.02-.41-.06-.12-.52-1.25-.71-1.72-.19-.46-.38-.4-.52-.4-.13 0-.29-.02-.44-.02s-.41.06-.62.29c-.21.23-.81.79-.81 1.93s.83 2.23.95 2.38c.12.15 1.64 2.53 3.96 3.54.55.24.98.38 1.31.49.55.18 1.05.15 1.45.09.44-.07 1.37-.56 1.57-1.1.19-.54.19-1 .14-1.1-.06-.1-.21-.16-.44-.28z"/>
+      </svg>
+    ),
   }, {
     name: 'Instagram',
     href: 'https://instagram.com/scuzi.in',
@@ -54,8 +63,8 @@ const Footer: React.FC = () => {
     href: 'mailto:info.scuzi@gmail.com'
   }, {
     icon: <Phone className="w-4 h-4" />,
-    text: '+91-9876543210',
-    href: 'tel:+919876543210'
+    text: '+91-6202620905',
+    href: 'tel:+916202620905'
   }, {
     icon: <MapPin className="w-4 h-4" />,
     text: 'Noida, Uttar Pradesh, India',
@@ -88,9 +97,10 @@ const Footer: React.FC = () => {
           {/* Column 1: Company Info */}
           <div>
             <div className="mb-6">
-              <h3 className="text-3xl font-bold text-gradient mb-4">
+              {/* <h3 className="text-3xl font-bold text-gradient mb-4">
                 Scuzi.in
-              </h3>
+              </h3> */}<img src="src/assets/logo2.png" alt="Scuzi.in Logo" className="h-8 w-auto lg:h-14" />
+
               <p className="text-gray-300 leading-relaxed">
                 Elevating brands with cutting-edge digital marketing and web solutions. 
                 We craft data-driven strategies that convert visitors into loyal customers.
