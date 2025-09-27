@@ -28,12 +28,12 @@ const About: React.FC = () => {
   // Company achievements and statistics
   const achievements = [{
     icon: <Users className="w-6 h-6 text-primary" />,
-    number: "20+",
+    number: "14+",
     label: "Happy Clients"
   }, {
     icon: <Award className="w-6 h-6 text-primary" />,
-    number: "50+",
-    label: "projects"
+    number: "30+",
+    label: "Projects"
   }, {
     icon: <Clock className="w-6 h-6 text-primary" />,
     number: "2+",
@@ -44,10 +44,10 @@ const About: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            About <span className="text-gradient">Scuzi.in</span>
+            About <span className="text-gradient">Scuzi</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover the team and vision behind Scuzi.in's digital marketing excellence.
+            Discover the team and vision behind Scuzi's digital marketing excellence.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const About: React.FC = () => {
             
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
-                <strong className="text-gray-800">Scuzi.in</strong> is a team of passionate marketers, designers, and developers 
+                <strong className="text-gray-800">Scuzi</strong> is a team of passionate marketers, designers, and developers 
                 dedicated to helping businesses succeed in the digital world. We believe in building partnerships, not just projects.
               </p>
               
