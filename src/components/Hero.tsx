@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+
+
 import { ArrowRight, PlayCircle } from 'lucide-react';
 
 /**
@@ -20,27 +23,62 @@ const Hero: React.FC = () => {
       });
     }
   };
+  // use counter in 98%
+  const [satisfaction, setSatisfaction] = useState(0);
+
+
+  useEffect(() => {
+  let start = 0;
+  const end = 98;
+  const duration = 2000; // animation duration in ms (2 seconds)
+  const stepTime = Math.abs(Math.floor(duration / end));
+
+  const timer = setInterval(() => {
+    start += 1;
+    setSatisfaction(start);
+    if (start >= end) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+
+  return () => clearInterval(timer);
+}, []);
+
+
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 hero-bg"></div>
       {/*Backgroung image*/}
       {/* <div className="absolute inset-0 bg-cover bg-center filter blur-lg"
       style={{ backgroundImage: "url('/bk.jpg')" }}></div> */}
+      {/* Video Background */}
+       <video
+        className="absolute inset-0 w-full h-full object-cover"
+
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="src/assets/v5.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
 
       
-      {/* Background Overlay */}
-      <div className="absolute inset-0  from-black/40 to-transparent bg-[#344e41]"></div>
+      {/* Background Overlay */} */
+       {/* <div className="absolute inset-0  from-black/40 to-transparent bg-[#344e41]"></div> */}
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center text-white px-4 py-8">
         <div className="max-w-5xl mx-auto">
           {/* Main Headline */}
-          <h1 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl font-bold leading-tight mb-6 md:mb-8 animate-fade-in-up">
+          <h1 className="text-xl sm:text-2xl md:text-5xl lg:text-6xl xl:text-5xl font-bold leading-tight mb-6 md:mb-8 animate-fade-in-up">
             Elevate Your Brand with{' '}<br></br>
             <span className="block lg:inline">
               Cutting-Edge Digital Marketing
             </span>
-            <span className="block text-white-300">
+            <span className="block text-grey-800">
               & Web Solutions
             </span>
           </h1>
@@ -74,19 +112,19 @@ const Hero: React.FC = () => {
           animationDelay: '0.6s'
         }}>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2">30+</div>
               <div className="text-gray-200 text-sm md:text-base">Projects Delivered</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">98%</div>
+              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2">{satisfaction}%</div>
               <div className="text-gray-200 text-sm md:text-base">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2">2+</div>
+              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2">2+</div>
               <div className="text-gray-200 text-sm md:text-base">Years Experience</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-[#d9ed92] mb-2" >24/7</div>
+              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2" >24/7</div>
               <div className="text-gray-200 text-sm md:text-base">Support</div>
             </div>
           </div>
