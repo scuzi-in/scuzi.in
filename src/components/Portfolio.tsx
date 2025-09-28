@@ -37,7 +37,7 @@ const Portfolio: React.FC = () => {
   // Sample portfolio projects
   const projects: Project[] = [{
     id: 1,
-    title: "TechCorp E-commerce Platform",
+    title: "Tech E-commerce Platform",
     description: "Complete e-commerce solution with integrated payment gateway and inventory management.",
     services: ["Web Development", "SEO", "PPC"],
     category: "E-commerce",
@@ -47,7 +47,7 @@ const Portfolio: React.FC = () => {
     results: ["300% increase in online sales", "50% reduction in cart abandonment", "95% customer satisfaction"]
   }, {
     id: 2,
-    title: "HealthPlus Digital Marketing Campaign",
+    title: "Health Care Digital Marketing Campaign",
     description: "Multi-channel digital marketing strategy that increased patient acquisition by 200%.",
     services: ["SEO", "Content Marketing", "Social Media"],
     category: "Healthcare",
@@ -57,7 +57,7 @@ const Portfolio: React.FC = () => {
     results: ["200% increase in patient acquisition", "150% boost in organic traffic", "400% growth in social engagement"]
   }, {
     id: 3,
-    title: "EduLearn Learning Management System",
+    title: "Learning Management System",
     description: "Custom LMS platform with interactive features and progress tracking.",
     services: ["Web Development", "UX Design"],
     category: "Education",
@@ -67,7 +67,7 @@ const Portfolio: React.FC = () => {
     results: ["500+ active users", "40% improvement in course completion", "99.9% uptime achieved"]
   }, {
     id: 4,
-    title: "RestaurantHub Brand Identity",
+    title: "Restaurant Brand Identity",
     description: "Complete brand overhaul including website redesign and social media strategy.",
     services: ["Branding", "Web Design", "Social Media"],
     category: "Restaurant",
@@ -77,7 +77,7 @@ const Portfolio: React.FC = () => {
     results: ["75% increase in reservations", "300% growth in social followers", "50% boost in brand recognition"]
   }, {
     id: 5,
-    title: "FinanceFlow Mobile App",
+    title: "Finance Mobile App",
     description: "Personal finance management app with budgeting and investment tracking.",
     services: ["Mobile Development", "UX Design"],
     category: "Finance",
@@ -87,7 +87,7 @@ const Portfolio: React.FC = () => {
     results: ["10,000+ downloads", "4.8 App Store rating", "60% user retention rate"]
   }, {
     id: 6,
-    title: "TravelEasy Booking Platform",
+    title: "Travel Booking Platform",
     description: "Travel booking platform with real-time availability and payment processing.",
     services: ["Web Development", "Payment Integration"],
     category: "Travel",

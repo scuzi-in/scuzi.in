@@ -185,11 +185,11 @@ const Testimonials: React.FC = () => {
               <div className="text-gray-600 font-medium">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">20+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">14+</div>
               <div className="text-gray-600 font-medium">Happy Clients</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">30+</div>
               <div className="text-gray-600 font-medium">Projects Completed</div>
             </div>
             <div>
