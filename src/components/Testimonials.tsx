@@ -27,34 +27,34 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "Scuzi.in transformed our online presence! Their team is professional, creative, and delivered results beyond our expectations. Our website traffic increased by 250% within just 3 months.",
-      name: "John Smith",
-      company: "ABC Corp",
-      position: "CEO",
+      quote: "Scuzi.in transformed our online presence! Their professionalism and creativity delivered results beyond our expectations. Our website traffic increased by 110% in just three months.",
+      name: "BES Group",
+      company: "BES Online",
+      position: " ",
       rating: 5
     },
     {
       id: 2,
       quote: "Working with Scuzi.in was a game-changer for our business. Their digital marketing strategies helped us reach new customers and significantly boost our ROI. Highly recommended!",
-      name: "Sarah Johnson",
-      company: "TechStart Inc",
-      position: "Marketing Director",
+      name: "Aditya Singh",
+      company: "Faishon Tree",
+      position: "Owner",
       rating: 5
     },
     {
       id: 3,
       quote: "The team at Scuzi.in understands the digital landscape like no other. They developed a stunning website for us and their SEO expertise brought us to the top of Google rankings.",
-      name: "Michael Chen",
-      company: "GreenLeaf Solutions",
+      name: "Bhavesh Rana",
+      company: "Athetic7",
       position: "Founder",
       rating: 5
     },
     {
       id: 4,
       quote: "Exceptional service and outstanding results! Scuzi.in helped us completely revamp our social media strategy and the engagement rates speak for themselves. True professionals!",
-      name: "Emily Rodriguez",
-      company: "Fashion Forward",
-      position: "Brand Manager",
+      name: "Ankit Singh",
+      company: "Singh Resort",
+      position: "Owner",
       rating: 5
     }
   ];
