@@ -51,20 +51,7 @@ const Hero: React.FC = () => {
       
       {/* Video Background */}
        <div className="absolute inset-0 overflow-hidden">
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    preload="auto"
-    className="min-w-full min-h-full object-cover"
-    style={{
-      transform: "translate3d(0,0,0)", // GPU acceleration
-      willChange: "transform, opacity",
-    }}
-  >
-    <source src="/assets/v5.mp4" type="video/mp4" />
-  </video>
+  <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline > <source src="src/assets/v5.mp4" type="video/mp4" /> Your browser does not support the video tag. </video>
 </div>
 
 

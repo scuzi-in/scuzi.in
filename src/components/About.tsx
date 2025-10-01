@@ -1,33 +1,49 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Users, Award, Clock, Lightbulb, Eye, Trophy } from "lucide-react";
+interface CounterProps {
+  end: number;
+  trigger: boolean;
+  suffix?: string; // optional suffix
+}
 
-// 🔥 Counter Component - animate on trigger
-const Counter: React.FC<{ end: number; trigger: boolean }> = ({ end, trigger }) => {
+
+// 🔥 Smooth Counter Component using requestAnimationFrame
+const Counter: React.FC<CounterProps> = ({ end, trigger, suffix = "" }) => {
   const [count, setCount] = useState(0);
+  const frameRef = useRef<number | null>(null); // stores requestAnimationFrame ID
 
   useEffect(() => {
     if (!trigger) {
-      setCount(0); // 🚀 reset counter when trigger is false
+      setCount(0);
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
       return;
     }
 
-    let current = 0;
-    const stepTime = 50; // ms
-    const increment = Math.ceil(end / (2000 / stepTime)); // 2 sec total animation
+    let start: number | null = null;
+    const duration = 2000; // 2 seconds
 
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= end) {
-        current = end;
-        clearInterval(timer);
-      }
+    const animate = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const progressRatio = Math.min(progress / duration, 1); // between 0 and 1
+      const current = Math.floor(end * progressRatio);
       setCount(current);
-    }, stepTime);
 
-    return () => clearInterval(timer);
+      if (progress < duration) {
+        frameRef.current = requestAnimationFrame(animate);
+      } else {
+        setCount(end); // ensure final value is exact
+      }
+    };
+
+    frameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    };
   }, [trigger, end]);
 
-  return <span style={{ fontSize: "2rem", fontWeight: "bold" }}>{count}</span>;
+  return <span style={{ fontSize: "2rem", fontWeight: "bold" }}>{count}{suffix}</span>;
 };
 
 const About = () => {
@@ -37,33 +53,30 @@ const About = () => {
   // 🔥 IntersectionObserver - detect when About section enters/exits viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true); // 🚀 section visible → trigger counters
-        } else {
-          setVisible(false); // ⚡ section hidden → reset counters
-        }
-      },
-      { threshold: 0.5 } // 50% visibility
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.5 }
     );
 
     if (ref.current) observer.observe(ref.current);
 
-    return () => observer.disconnect();
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
   }, []);
 
   // Company achievements
   const achievements = [
-    { icon: <Users className="w-6 h-6 text-primary" />, number: <Counter end={14} trigger={visible} />, label: "Happy Clients" },
-    { icon: <Award className="w-6 h-6 text-primary" />, number: <Counter end={30} trigger={visible} />, label: "Projects" },
-    { icon: <Clock className="w-6 h-6 text-primary" />, number: <Counter end={2} trigger={visible} />, label: "Years Experience" }
-  ];
+  { icon: <Users className="w-6 h-6 text-primary" />, number: <Counter end={14} suffix="+" trigger={visible} />, label: "Happy Clients" },
+  { icon: <Award className="w-6 h-6 text-primary" />, number: <Counter end={30} suffix="+" trigger={visible} />, label: "Projects" },
+  { icon: <Clock className="w-6 h-6 text-primary" />, number: <Counter end={2} suffix="+" trigger={visible} />, label: "Years Experience" },
+];
+
 
   // Company values
   const values = [
     { icon: <Lightbulb className="w-8 h-8 text-primary" />, title: "Innovation", description: "We stay ahead of digital trends and continuously innovate our strategies to deliver cutting-edge solutions." },
     { icon: <Eye className="w-8 h-8 text-primary" />, title: "Transparency", description: "Clear communication and honest reporting are at the core of our client relationships." },
-    { icon: <Trophy className="w-8 h-8 text-primary" />, title: "Client Success", description: "Your success is our success. We're committed to delivering measurable results that drive your business forward." }
+    { icon: <Trophy className="w-8 h-8 text-primary" />, title: "Client Success", description: "Your success is our success. We're committed to delivering measurable results that drive your business forward." },
   ];
 
   return (
