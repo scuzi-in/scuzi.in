@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { ArrowRight, PlayCircle } from 'lucide-react';
 
+
 /**
  * Hero Section Component
  * Features:
@@ -12,57 +13,61 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
  * - Primary and secondary CTA buttons
  * - Responsive design with professional typography
  */
+const Counter: React.FC<{ end: number; suffix?: string }> = ({ end, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 5000; // 2 seconds
+    const stepTime = Math.abs(Math.floor(duration / end));
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [end]);
+
+  return <>{count}{suffix}</>;
+};
+
+/**
+ * Hero Section Component
+ */
 const Hero: React.FC = () => {
   // Smooth scroll function for CTA buttons
   const handleSmoothScroll = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-  // use counter in 98%
-  const [satisfaction, setSatisfaction] = useState(0);
-
-
-  useEffect(() => {
-  let start = 0;
-  const end = 98;
-  const duration = 2000; // animation duration in ms (2 seconds)
-  const stepTime = Math.abs(Math.floor(duration / end));
-
-  const timer = setInterval(() => {
-    start += 1;
-    setSatisfaction(start);
-    if (start >= end) {
-      clearInterval(timer);
-    }
-  }, stepTime);
-
-  return () => clearInterval(timer);
-}, []);
-
 
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 hero-bg"></div>
-      {/*Backgroung image*/}
-      {/* <div className="absolute inset-0 bg-cover bg-center filter blur-lg"
-      style={{ backgroundImage: "url('/bk.jpg')" }}></div> */}
+      
       {/* Video Background */}
-       <video
-        className="absolute inset-0 w-full h-full object-cover"
+       <div className="absolute inset-0 overflow-hidden">
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+    className="min-w-full min-h-full object-cover"
+    style={{
+      transform: "translate3d(0,0,0)", // GPU acceleration
+      willChange: "transform, opacity",
+    }}
+  >
+    <source src="/assets/v5.mp4" type="video/mp4" />
+  </video>
+</div>
 
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="src/assets/v5.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+
 
 
       
@@ -112,20 +117,20 @@ const Hero: React.FC = () => {
           animationDelay: '0.6s'
         }}>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2">30+</div>
-              <div className="text-gray-200 text-sm md:text-base">Projects Delivered</div>
+              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2"><Counter end={30} suffix="+" /></div>
+              <div className="text-gray-50 text-sm md:text-base">Projects Delivered</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2">{satisfaction}%</div>
-              <div className="text-gray-200 text-sm md:text-base">Client Satisfaction</div>
+              <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2"><Counter end={98} suffix="%" /></div>
+              <div className="text-gray-50 text-sm md:text-base">Client Satisfaction</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2">2+</div>
-              <div className="text-gray-200 text-sm md:text-base">Years Experience</div>
+              <div className="text-gray-50 text-sm md:text-base">Years Experience</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-yellow-200 mb-2" >24/7</div>
-              <div className="text-gray-200 text-sm md:text-base">Support</div>
+              <div className="text-gray-50 text-sm md:text-base">Support</div>
             </div>
           </div>
         </div>

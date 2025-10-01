@@ -10,7 +10,7 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle, Heart, Car, GraduationCa
  * - Success/error message handling
  * - Responsive two-column layout
  */
-//color change 161
+
 // Form data interface
 interface FormData {
   name: string;
@@ -68,8 +68,8 @@ const Contact: React.FC = () => {
   }, {
     icon: <Phone className="w-6 h-6 text-primary" />,
     label: 'Phone',
-    value: '+91-9876543210',
-    href: 'tel:+919876543210'
+    value: '+91-6202620905',
+    href: 'tel:+916202620905'
   }, {
     icon: <MapPin className="w-6 h-6 text-primary" />,
     label: 'Location',
@@ -90,8 +90,8 @@ const Contact: React.FC = () => {
       case 'email':
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return !emailRegex.test(value) ? 'Please enter a valid email address' : '';
-      case 'service':
-        return !value ? 'Please select a service' : '';
+      // case 'service':
+      //   return !value ? 'Please select a service' : '';
       case 'message':
         return value.trim().length < 10 ? 'Message must be at least 10 characters' : '';
       default:
@@ -158,7 +158,12 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-  return <section id="contact" className="section-padding bg-gray-50" style={{ backgroundColor: "#dad7cd" }}>
+  return <section
+  id="contact"
+  className="px-6 pt-0 pb-1 bg-gray-50"
+  style={{ backgroundColor: "#dad7cd" }}
+>
+
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -226,7 +231,9 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="bg-background p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200">
+          
+          <div className="bg-background p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200 lg:max-h-[750px] lg:overflow-y-auto">
+
             <h3 className="text-2xl font-bold text-gray-900 mb-8">
               Send Us a Message
             </h3>
@@ -242,7 +249,7 @@ const Contact: React.FC = () => {
                 <p className="text-red-700">Something went wrong. Please try again.</p>
               </div>}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="form-label">
@@ -264,7 +271,7 @@ const Contact: React.FC = () => {
               {/* Service Selection */}
               <div>
                 <label htmlFor="service" className="form-label">
-                  Service of Interest *
+                  Service of Interest 
                 </label>
                 <select id="service" name="service" value={formData.service} onChange={handleInputChange} className={`form-input ${errors.service ? 'border-red-500' : ''}`}>
                   <option value="">Select a service</option>
@@ -272,7 +279,7 @@ const Contact: React.FC = () => {
                       {option}
                     </option>)}
                 </select>
-                {errors.service && <p className="mt-1 text-sm text-red-600">{errors.service}</p>}
+                {/* {errors.service && <p className="mt-1 text-sm text-red-600">{errors.service}</p>} */}
               </div>
 
               {/* Message Field */}

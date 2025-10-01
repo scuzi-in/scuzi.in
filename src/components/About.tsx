@@ -1,45 +1,78 @@
-import React from 'react';
-import { Lightbulb, Eye, Trophy, Users, Award, Clock } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import { Users, Award, Clock, Lightbulb, Eye, Trophy } from "lucide-react";
 
-/**
- * About Us Section Component
- * Features:
- * - Two-column layout with team image and company info
- * - Mission, vision, and values with icons
- * - Professional statistics and achievements
- * - Responsive design for all devices
- */
-const About: React.FC = () => {
-  // Company values with icons and descriptions
-  const values = [{
-    icon: <Lightbulb className="w-8 h-8 text-primary" />,
-    title: "Innovation",
-    description: "We stay ahead of digital trends and continuously innovate our strategies to deliver cutting-edge solutions."
-  }, {
-    icon: <Eye className="w-8 h-8 text-primary" />,
-    title: "Transparency",
-    description: "Clear communication and honest reporting are at the core of our client relationships."
-  }, {
-    icon: <Trophy className="w-8 h-8 text-primary" />,
-    title: "Client Success",
-    description: "Your success is our success. We're committed to delivering measurable results that drive your business forward."
-  }];
+// 🔥 Counter Component - animate on trigger
+const Counter: React.FC<{ end: number; trigger: boolean }> = ({ end, trigger }) => {
+  const [count, setCount] = useState(0);
 
-  // Company achievements and statistics
-  const achievements = [{
-    icon: <Users className="w-6 h-6 text-primary" />,
-    number: "14+",
-    label: "Happy Clients"
-  }, {
-    icon: <Award className="w-6 h-6 text-primary" />,
-    number: "30+",
-    label: "Projects"
-  }, {
-    icon: <Clock className="w-6 h-6 text-primary" />,
-    number: "2+",
-    label: "Years Experience"
-  }];
-  return <section id="about" className="section-padding bg-background px-0 py-[3px] " style={{ backgroundColor: "#dad7cd" }}>
+  useEffect(() => {
+    if (!trigger) {
+      setCount(0); // 🚀 reset counter when trigger is false
+      return;
+    }
+
+    let current = 0;
+    const stepTime = 50; // ms
+    const increment = Math.ceil(end / (2000 / stepTime)); // 2 sec total animation
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      setCount(current);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [trigger, end]);
+
+  return <span style={{ fontSize: "2rem", fontWeight: "bold" }}>{count}</span>;
+};
+
+const About = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  // 🔥 IntersectionObserver - detect when About section enters/exits viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true); // 🚀 section visible → trigger counters
+        } else {
+          setVisible(false); // ⚡ section hidden → reset counters
+        }
+      },
+      { threshold: 0.5 } // 50% visibility
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Company achievements
+  const achievements = [
+    { icon: <Users className="w-6 h-6 text-primary" />, number: <Counter end={14} trigger={visible} />, label: "Happy Clients" },
+    { icon: <Award className="w-6 h-6 text-primary" />, number: <Counter end={30} trigger={visible} />, label: "Projects" },
+    { icon: <Clock className="w-6 h-6 text-primary" />, number: <Counter end={2} trigger={visible} />, label: "Years Experience" }
+  ];
+
+  // Company values
+  const values = [
+    { icon: <Lightbulb className="w-8 h-8 text-primary" />, title: "Innovation", description: "We stay ahead of digital trends and continuously innovate our strategies to deliver cutting-edge solutions." },
+    { icon: <Eye className="w-8 h-8 text-primary" />, title: "Transparency", description: "Clear communication and honest reporting are at the core of our client relationships." },
+    { icon: <Trophy className="w-8 h-8 text-primary" />, title: "Client Success", description: "Your success is our success. We're committed to delivering measurable results that drive your business forward." }
+  ];
+
+  return (
+    <section
+      id="about"
+      ref={ref} // 🔥 attach ref for observer
+      className="section-padding bg-background px-0 py-[3px]"
+      style={{ backgroundColor: "#dad7cd" }}
+    >
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -56,7 +89,6 @@ const About: React.FC = () => {
           {/* Left Column - Image */}
           <div className="order-2 lg:order-1">
             <div className="relative">
-              {/* Team Image Placeholder */}
               <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-lg">
                 <div className="text-center p-8">
                   <Users className="w-24 h-24 text-primary mx-auto mb-4" />
@@ -64,8 +96,6 @@ const About: React.FC = () => {
                   <p className="text-gray-600">Passionate marketers, designers, and developers working together</p>
                 </div>
               </div>
-              
-              {/* Decorative Elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full opacity-20"></div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-secondary to-accent rounded-full opacity-20"></div>
             </div>
@@ -73,21 +103,16 @@ const About: React.FC = () => {
 
           {/* Right Column - Content */}
           <div className="order-1 lg:order-2">
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Who We Are
-            </h3>
-            
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Who We Are</h3>
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
                 <strong className="text-gray-800">Scuzi</strong> is a team of passionate marketers, designers, and developers 
                 dedicated to helping businesses succeed in the digital world. We believe in building partnerships, not just projects.
               </p>
-              
               <p>
                 Our mission is to deliver measurable results and exceptional service that drives real business growth. 
                 We combine creativity with data-driven strategies to create digital experiences that convert.
               </p>
-              
               <p>
                 Founded with the vision to democratize digital marketing excellence, we've helped hundreds of businesses 
                 transform their online presence and achieve remarkable growth.
@@ -96,45 +121,39 @@ const About: React.FC = () => {
 
             {/* Achievement Stats */}
             <div className="grid grid-cols-3 gap-6 mt-10">
-              {achievements.map((achievement, index) => <div key={index} className="text-center">
-                  <div className="flex items-center justify-center mb-2">
-                    {achievement.icon}
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900">{achievement.number}</div>
+              {achievements.map((achievement, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center mb-2">{achievement.icon}</div>
+                  <div>{achievement.number}</div> {/* 🚀 counters animate on scroll */}
                   <div className="text-sm text-gray-600">{achievement.label}</div>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Values Section */}
         <div className="bg-gray-50 rounded-3xl p-8 lg:p-12">
-          <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">
-            Our Core Values
-          </h3>
-          
+          <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">Our Core Values</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {values.map((value, index) => <div key={index} className="text-center group">
+            {values.map((value, index) => (
+              <div key={index} className="text-center group">
                 <div className="mb-6 flex justify-center transform group-hover:scale-110 transition-transform duration-300">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
                     {value.icon}
                   </div>
                 </div>
-                
                 <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
                   {value.title}
                 </h4>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>)}
+                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* Call to Action */}
-        
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;

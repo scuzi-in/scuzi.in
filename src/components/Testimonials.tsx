@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+const Counter: React.FC<{ end: number; suffix?: string }> = ({ end, suffix = '' }) => {
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000; // 2 seconds
+    const stepTime = Math.floor(duration / end);
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [end]);
+
+  return <span>{count}{suffix}</span>;
+};
 /**
  * Testimonials Section Component
  * Features:
@@ -27,34 +45,34 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "Scuzi.in transformed our online presence! Their professionalism and creativity delivered results beyond our expectations. Our website traffic increased by 110% in just three months.",
-      name: "BES Group",
-      company: "BES Online",
-      position: " ",
+      quote: "Scuzi.in transformed our online presence! Their team is professional, creative, and delivered results beyond our expectations. Our website traffic increased by 250% within just 3 months.",
+      name: "John Smith",
+      company: "ABC Corp",
+      position: "CEO",
       rating: 5
     },
     {
       id: 2,
       quote: "Working with Scuzi.in was a game-changer for our business. Their digital marketing strategies helped us reach new customers and significantly boost our ROI. Highly recommended!",
-      name: "Aditya Singh",
-      company: "Faishon Tree",
-      position: "Owner",
+      name: "Sarah Johnson",
+      company: "TechStart Inc",
+      position: "Marketing Director",
       rating: 5
     },
     {
       id: 3,
       quote: "The team at Scuzi.in understands the digital landscape like no other. They developed a stunning website for us and their SEO expertise brought us to the top of Google rankings.",
-      name: "Bhavesh Rana",
-      company: "Athetic7",
+      name: "Michael Chen",
+      company: "GreenLeaf Solutions",
       position: "Founder",
       rating: 5
     },
     {
       id: 4,
       quote: "Exceptional service and outstanding results! Scuzi.in helped us completely revamp our social media strategy and the engagement rates speak for themselves. True professionals!",
-      name: "Ankit Singh",
-      company: "Singh Resort",
-      position: "Owner",
+      name: "Emily Rodriguez",
+      company: "Fashion Forward",
+      position: "Brand Manager",
       rating: 5
     }
   ];
@@ -181,15 +199,15 @@ const Testimonials: React.FC = () => {
         <div className="mt-20 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8 lg:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">98%</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2"><Counter end={98} suffix="%" /></div>
               <div className="text-gray-600 font-medium">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">14+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2"><Counter end={14} suffix="+" /></div>
               <div className="text-gray-600 font-medium">Happy Clients</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">30+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2"><Counter end={30} suffix="+" /></div>
               <div className="text-gray-600 font-medium">Projects Completed</div>
             </div>
             <div>
