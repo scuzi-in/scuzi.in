@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
             <div className="mb-6">
               {/* <h3 className="text-3xl font-bold text-gradient mb-4">
                 Scuzi.in
-              </h3> */}<img src="public/logo2.png" alt="Scuzi.in Logo" className="h-8 w-auto lg:h-14" />
+              </h3> */}<img src="/logo2.png" alt="Logo" className="h-8 w-auto lg:h-14" />
 
               <p className="text-gray-300 leading-relaxed">
                 Elevating brands with cutting-edge digital marketing and web solutions. 
