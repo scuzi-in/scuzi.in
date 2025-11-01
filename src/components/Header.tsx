@@ -60,7 +60,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-12 py-0 px-0 mx-0 my-[10px] rounded-none bg-[#977dff]/0">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => handleSmoothScroll('#home')}>
-                    <img src="src/assets/logo2.png" alt="Scuzi.in Logo" className="h-8 w-auto lg:h-14" />
+                    <img src="public/logo2.png" alt="Scuzi.in Logo" className="h-8 w-auto lg:h-14" />
           </div>
 
           {/* Desktop Navigation */}
