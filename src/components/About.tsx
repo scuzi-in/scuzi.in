@@ -51,10 +51,13 @@ const About = () => {
   const [visible, setVisible] = useState(false);
 
   // 🔥 IntersectionObserver - detect when About section enters/exits viewport
-  useEffect(() => {
+ useEffect(() => {
+    const isMobile = window.innerWidth < 768; //
     const observer = new IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.5 }
+      { threshold: 0.15, // 👈 smaller threshold on mobile
+        rootMargin: "0px 0px -20% 0px", // 👈 triggers a bit earlier
+         }
     );
 
     if (ref.current) observer.observe(ref.current);
