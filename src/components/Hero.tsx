@@ -45,9 +45,9 @@ const Hero: React.FC = () => {
     }
   };
 
-  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#aaa7ad] transition-colors ">
       {/* Animated Background */}
-      <div className="absolute inset-0 hero-bg"></div>
+      {/* <div className="absolute inset-0 hero-bg"></div>*/ }
       
       {/* Video Background */}
        <div className="absolute inset-0 overflow-hidden">
