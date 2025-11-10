@@ -1,26 +1,26 @@
-import { MongoClient } from "mongodb";
+// /api/contact.js
+import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URI;
-let client;
+const uri = process.env.MONGODB_URI; // Add this to .env.local
+const client = new MongoClient(uri);
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Only POST requests allowed" });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    if (!client) client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("contactForm");
-    const collection = db.collection("contacts");
-
     const { name, email, phone, service, message } = req.body;
 
-    if (!name || !email || !phone || !message) {
-      return res.status(400).json({ message: "Missing required fields" });
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: 'Missing required fields' });
     }
 
-    await collection.insertOne({
+    await client.connect();
+    const database = client.db('contactForm');
+    const collection = database.collection('contacts');
+
+    const result = await collection.insertOne({
       name,
       email,
       phone,
@@ -29,9 +29,11 @@ export default async function handler(req, res) {
       createdAt: new Date(),
     });
 
-    res.status(200).json({ success: true });
-  } catch (error) {
-    console.error("Error saving contact:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+    return res.status(200).json({ success: true, id: result.insertedId });
+  } catch (err) {
+    console.error('Error inserting contact form:', err);
+    return res.status(500).json({ success: false, error: err.message });
+  } finally {
+    await client.close();
   }
 }
