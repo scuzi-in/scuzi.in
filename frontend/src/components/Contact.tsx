@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return !emailRegex.test(value) ? 'Please enter a valid email address' : '';
       case 'phone':
-        const phoneRegex = /^[0-9]{10}$/;
+        const phoneRegex = /^[0-9\s-]{10,15}$/;
         return !phoneRegex.test(value) ? 'Please enter a valid 10-digit phone number' : '';
       case 'message':
         return value.trim().length < 10 ? 'Message must be at least 10 characters' : '';
