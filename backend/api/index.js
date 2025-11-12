@@ -7,9 +7,8 @@ import { connectDB } from "../config/db.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Connect  MongoDB
+// Connect MongoDB
 connectDB();
 
 // Middleware
@@ -24,7 +23,10 @@ app.use(
 
 // Example route
 app.get("/", (req, res) => {
-  res.send("🚀 Backend is running successfully!");
+  res.send("🚀 Backend is running successfully on Vercel!");
 });
 
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+// ❗ DO NOT CALL app.listen() here
+// Vercel will handle the server and routing automatically
+
+export default app;
