@@ -1,8 +1,7 @@
-// /backend/api/index.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { connectDB } from "./backend/config/db.js";
+import { connectDB } from "../config/db.js";
 
 dotenv.config();
 
@@ -26,7 +25,7 @@ app.get("/", (req, res) => {
   res.send("🚀 Backend is running successfully on Vercel!");
 });
 
-// ❗ DO NOT CALL app.listen() here
-// Vercel will handle the server and routing automatically
+// ❗ Do NOT call app.listen()
+// Vercel will handle serverless routing automatically
 
 export default app;
