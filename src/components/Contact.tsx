@@ -59,6 +59,8 @@ const Contact: React.FC = () => {
     'Web Development',
     'Analytics & Reporting',
     'Complete Digital Marketing Package',
+    'Brandind & Graphic Design',
+    'Others',
   ];
 
   const contactInfo = [

@@ -38,9 +38,9 @@ const Services: React.FC = () => {
     features: ["Custom Design", "E-commerce", "Mobile Optimization", "Performance Optimization"]
   }, {
     icon: <BarChart3 className="w-12 h-12 text-primary" />,
-    title: "Analytics & Reporting",
-    description: "Make informed decisions with comprehensive analytics and transparent reporting on your campaign performance.",
-    features: ["Google Analytics", "Custom Dashboards", "Conversion Tracking", "ROI Reporting"]
+    title: "Branding & Graphic Design",
+    description: "We craft memorable brand identities and graphic designs that communicate your story, build trust, and create a lasting visual impact.",
+    features: ["Logo Design", "Brand Identity", "Social Media Creatives", "Ad Creatives"]
   }];
   return <section id="services" className="section-padding" style={{ backgroundColor: '#dad7cd' }}
   >
